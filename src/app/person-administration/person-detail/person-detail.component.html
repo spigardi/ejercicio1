@@ -1,0 +1,26 @@
+
+<div class="contenedor" *ngFor="let person of personList">
+    <p>Detalles personales</p>
+    <span>Edad: {{person.edad}}</span>
+    <span>Nombre: {{person.nombre}}</span>
+    <span>Apellido: {{person.apellido}}</span>
+    <div *ngIf="person.edad >= 18">
+        Es mayor de edad
+    </div>
+    <div *ngIf="person.edad < 18">
+        Es menor de edad
+    </div>
+    <button (click)="seleccionarPersona(person)">Editar</button>
+
+
+</div>
+
+<div *ngIf="selectedPerson">
+    <h2>Editando la información de una persona</h2>
+
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="selectedPerson.nombre">
+
+  <label>Apellido:</label>
+  <input type="text" [(ngModel)]="selectedPerson.apellido">
+</div>
